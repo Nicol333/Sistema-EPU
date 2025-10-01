@@ -185,6 +185,31 @@
     transform: scale(1.05);
 }
 
+/* (Se revirtieron ajustes de layout solicitados por el usuario. Sólo se mantiene el cambio de color del botón en las cards.) */
+
+/* Botón dentro de las cards: blanco con texto negro, efecto sutil al hover. Scoped para no tocar otros botones */
+.content-cards .card .btn-primary,
+.content-cards .card button.btn-primary {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.18s ease, transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.content-cards .card .btn-primary:hover,
+.content-cards .card button.btn-primary:hover {
+    /* Al pasar el cursor, usar un azul oscuro sólido (no transparente) */
+    background-color: #163766 !important;
+    color: #ffffff !important;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.18);
+}
+
 body {
     background: url("/static/img/PARAMO-DEL-SOL-URRAO.png") no-repeat center center/cover;
     min-height: 100vh;

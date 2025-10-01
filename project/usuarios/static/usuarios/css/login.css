@@ -7,17 +7,17 @@
 
 /* Forzar tamaño de la X en cerrar-login */
 .cerrar-login a {
-    display: flex !important;            
+    display: flex !important;            /* forzamos a bloque flexible */
     align-items: center;
     justify-content: center;
-        font-size: 56px; 
-    width: 80px !important;              
+        font-size: 56px; /* tamaño base del enlace (icono escalable) */
+    width: 80px !important;              /* área clickeable más grande */
     height: 80px !important;
     line-height: 1 !important;
-    color: #ffffff !important;           
-    background: transparent !important;  
+    color: #ffffff !important;           /* color blanco */
+    background: transparent !important;  /* sin fondo */
     border: none !important;
-    border-radius: 50%;                  
+    border-radius: 50%;                  /* opcional: en círculo */
     cursor: pointer;
     z-index: 4000;
     transition: transform 0.2s ease, color 0.2s ease;
@@ -258,53 +258,27 @@
     }
 }
 
-
-/* Override final: asegurar que la X quede dentro del contenedor y no lo sobrepase */
-.login-box > .cerrar-login {
-    top: 14px !important; /* más hacia dentro */
-    right: 14px !important;
-}
-
-.login-box > .cerrar-login a {
-    width: 48px !important;
-    height: 48px !important;
-}
 /* eliminar pseudo-elementos en caso de que existan reglas anteriores */
 .login-box > .cerrar-login a::before,
 .login-box > .cerrar-login a::after {
-    /* Thick X: barras visibles */
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 30px;
-    height: 6px; /* grosor de la X */
-    background: #ffffff;
-    border-radius: 3px;
-    transform-origin: center;
+    content: none !important;
 }
-
-.login-box > .cerrar-login a::before { transform: translate(-50%, -50%) rotate(45deg); }
-.login-box > .cerrar-login a::after  { transform: translate(-50%, -50%) rotate(-45deg); }
 
 .login-box > .cerrar-login a:hover {
     transform: scale(1.06);
+    color: #00BFA5 !important;
 }
 
-.login-box > .cerrar-login a:hover::before,
-.login-box > .cerrar-login a:hover::after {
-    background: #00BFA5;
+.login-box > .cerrar-login a:focus {
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 @media (max-width: 480px) {
     .login-box > .cerrar-login a {
-        width: 44px !important;
-        height: 44px !important;
-    }
-    .login-box > .cerrar-login a::before,
-    .login-box > .cerrar-login a::after {
-        width: 22px;
-        height: 5px;
+        width: 44px;
+        height: 44px;
+        font-size: 32px;
     }
 }
 
