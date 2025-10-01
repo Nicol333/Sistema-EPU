@@ -5,19 +5,63 @@
     padding: 0;
 }
 
+/* Forzar tamaño de la X en cerrar-login */
 .cerrar-login a {
-    font-size: 40px;
-    color: #fffdfd;
-    text-decoration: none;
-    background: transparent;
-    border: none;
+    display: flex !important;            /* forzamos a bloque flexible */
+    align-items: center;
+    justify-content: center;
+        font-size: 56px; /* tamaño base del enlace (icono escalable) */
+    width: 80px !important;              /* área clickeable más grande */
+    height: 80px !important;
+    line-height: 1 !important;
+    color: #ffffff !important;           /* color blanco */
+    background: transparent !important;  /* sin fondo */
+    border: none !important;
+    border-radius: 50%;                  /* opcional: en círculo */
     cursor: pointer;
+    z-index: 4000;
     transition: transform 0.2s ease, color 0.2s ease;
 }
 
+/* Hover */
 .cerrar-login a:hover {
-    transform: scale(1.2);
-    color: #102152;
+    transform: scale(1.15);
+    color: #00BFA5 !important; /* turquesa al pasar */
+}
+
+    /* Estilo para el icono SVG/ fuente de Bootstrap Icons dentro del enlace */
+    .login-box > .cerrar-login a .bi {
+        font-size: 56px; /* tamaño grande y nítido */
+        color: #ffffff;
+        line-height: 1;
+        vertical-align: middle;
+    }
+
+    .login-box > .cerrar-login a:hover .bi {
+        color: #00BFA5;
+    }
+
+.login-box .cerrar-login {
+    z-index: 3000;
+}
+
+.login-box .cerrar-login a {
+    font-size: 88px !important;
+    line-height: 1 !important;
+    padding: 6px 10px !important;
+    width: auto !important;
+    height: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+@media (max-width: 480px) {
+    .login-box .cerrar-login a {
+        font-size: 44px !important;
+        width: 48px !important;
+        height: 48px !important;
+    }
 }
 
 .login-section {
@@ -33,7 +77,8 @@
 
 .login-container {
     width: 100%;
-    max-width: 420px;
+    /* Un poco más ancho según solicitud */
+    max-width: 520px;
     position: relative;
     z-index: 2;
 }
@@ -46,7 +91,8 @@
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    text-align: center;
+    /* Anular centrados de texto en esta caja según petición */
+    text-align: left;
     position: relative;
     animation: fadeInUp 0.6s ease;
 }
@@ -60,12 +106,12 @@
 
 .login-box h2 {
     color: #ffffff;
-    font-size: 26px;
-    margin-bottom: 25px;
+    /* letra un poco más grande */
+    font-size: 28px;
+    margin-bottom: 18px;
     font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
+    text-align: center; /* título centrado según petición */
 }
 
 .login-box h2 i {
@@ -91,7 +137,8 @@
     border-radius: 8px;
     border: 1px solid #ccc;
     padding: 12px;
-    font-size: 15px;
+    /* letra un poco más grande */
+    font-size: 17px;
     transition: all 0.3s ease;
 }
 
@@ -104,7 +151,8 @@
     background: linear-gradient(90deg, #00BFA5, #102152);
     border: none;
     font-weight: 600;
-    font-size: 16px;
+    /* letra ligeramente mayor */
+    font-size: 17px;
     padding: 12px;
     border-radius: 30px;
     transition: all 0.3s ease;
@@ -112,7 +160,7 @@
     width: 100%;
     text-align: center;
     margin-top: 10px;
-        display: inline-flex;      
+    display: inline-flex;      
     align-items: center;      
     justify-content: center;  
     gap: 8px;   
@@ -137,18 +185,35 @@
     color: #00BFA5; 
 }
 
+/* Anular centrados aplicados desde clases del HTML (bootstrap) dentro de la caja */
+.login-box .text-center,
+.login-box .text-end {
+    text-align: left !important;
+}
+
 .register-link {
-    text-align: center;
+    /* Usar los mismos colores que el enlace de 'olvidaste tu contraseña' */
+    text-align: left;
     margin-top: 10px;
-    font-size: 14px;
+    font-size: 17px;
     display: block;
-    color: #00BFA5;
+    color: #ffffff; /* mismo color por defecto que el link de olvido */
     font-weight: 500;
     transition: color 0.3s;
 }
 
 .register-link:hover {
-    color: #1b4d89;
+    color: #00BFA5; /* mismo hover que el link de olvido */
+}
+
+.btn-muted {
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+    color: #fff !important;
+}
+.btn-muted:hover {
+    background-color: #5a646b !important;
+    border-color: #5a646b !important;
 }
 
 @media (max-width: 768px) {
@@ -160,6 +225,86 @@
     }
     .login-box h2 {
         font-size: 22px;
+    }
+}
+
+.login-box > .cerrar-login {
+    position: absolute;
+    top: 8px; /* pegar más al borde superior */
+    right: 8px; /* pegar más al borde derecho */
+    z-index: 4000;
+}
+
+/* REGLA FINAL para hacer la X realmente grande */
+.login-box .cerrar-login a {
+    font-size: 90px !important;    /* tamaño grande */
+    width: auto !important;        
+    height: auto !important;       
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+    color: #ffffff !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer;
+    z-index: 5000 !important;      /* más arriba de todo */
+    padding: 0 !important;         /* evita que se reduzca */
+}
+
+@media (max-width: 480px) {
+    .login-box .cerrar-login a {
+        font-size: 50px !important;
+    }
+}
+
+
+/* Override final: asegurar que la X quede dentro del contenedor y no lo sobrepase */
+.login-box > .cerrar-login {
+    top: 14px !important; /* más hacia dentro */
+    right: 14px !important;
+}
+
+.login-box > .cerrar-login a {
+    width: 48px !important;
+    height: 48px !important;
+}
+/* eliminar pseudo-elementos en caso de que existan reglas anteriores */
+.login-box > .cerrar-login a::before,
+.login-box > .cerrar-login a::after {
+    /* Thick X: barras visibles */
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 30px;
+    height: 6px; /* grosor de la X */
+    background: #ffffff;
+    border-radius: 3px;
+    transform-origin: center;
+}
+
+.login-box > .cerrar-login a::before { transform: translate(-50%, -50%) rotate(45deg); }
+.login-box > .cerrar-login a::after  { transform: translate(-50%, -50%) rotate(-45deg); }
+
+.login-box > .cerrar-login a:hover {
+    transform: scale(1.06);
+}
+
+.login-box > .cerrar-login a:hover::before,
+.login-box > .cerrar-login a:hover::after {
+    background: #00BFA5;
+}
+
+@media (max-width: 480px) {
+    .login-box > .cerrar-login a {
+        width: 44px !important;
+        height: 44px !important;
+    }
+    .login-box > .cerrar-login a::before,
+    .login-box > .cerrar-login a::after {
+        width: 22px;
+        height: 5px;
     }
 }
 
@@ -187,4 +332,31 @@
 
 .terminos-link:hover {
     color: #00BFA5; /* Agua marino / turquesa */
+}
+
+/* Forzar color de todos los enlaces dentro de la caja de login:
+   blanco por defecto, y verde-azul al pasar el cursor */
+.login-box a,
+.login-box a:link,
+.login-box a:visited {
+    color: #ffffff !important;
+    text-decoration: none;
+    transition: color 0.18s ease;
+    font-size: 17px !important;
+    line-height: 1.4;
+}
+
+.login-box a:hover,
+.login-box a:focus {
+    color: #00BFA5 !important; /* verde-azul al pasar */
+    text-decoration: none;
+}
+
+/* En pantallas pequeñas */
+@media (max-width: 480px) {
+    .cerrar-login a {
+        font-size: 44px !important;
+        width: 56px !important;
+        height: 56px !important;
+    }
 }

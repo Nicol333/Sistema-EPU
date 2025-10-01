@@ -13,10 +13,10 @@
     <div class="login-container">
         <div class="login-box">
             <div class="cerrar-login">
-                <a href="{% url 'home' %}" title="Cancelar e ir atrás">✖</a>
+                <a href="{% url 'home' %}" title="Cancelar e ir atrás" aria-label="Cerrar"></a>
             </div>
 
-            <h2 class="text-center">
+            <h2>
                 <i class="bi bi-box-arrow-in-right"></i> Iniciar Sesión
             </h2>
 
@@ -41,7 +41,7 @@
                     </label>
                 </div>
 
-                <div class="text-end mt-2">
+                <div class="mt-2">
                     <a href="{% url 'olvido_contrasena' %}">¿Olvidaste tu contraseña?</a>
                 </div>
 
@@ -53,7 +53,7 @@
                     <i class="bi bi-arrow-right-circle"></i> Iniciar Sesión
                 </a>
 
-                <div class="text-center mt-2">
+                <div class="mt-2">
                     <a href="{% url 'registro_usuario' %}" class="register-link">¿No tienes cuenta? Regístrate</a>
                 </div>
             </form>
