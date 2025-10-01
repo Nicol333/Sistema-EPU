@@ -1,64 +1,4 @@
-.hero {
-    background: #102152;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 120px 20px;
-    min-height: 70vh;
-}
-
-.hero-box {
-    background: url("/static/img/fondo_azul.png") no-repeat center center/cover;
-    width: 80%;
-    max-width: 900px;
-    height: 400px;
-    border-radius: 20px;
-    position: relative;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-overlay {
-    text-align: center;
-    color: white;
-    text-transform: uppercase;
-}
-
-.hero-overlay h1 {
-    font-size: 42px;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-.hero-center {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
-
-.hero-button {
-    display: inline-block;
-    padding: 12px 30px;
-    background: #ffffff;
-    color: #102152;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: bold;
-    font-size: 16px;
-    letter-spacing: 1px;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.hero-button:hover {
-    background: #102152;
-    color: #ffffff;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
-
+/* Estilos globales */
 * {
     margin: 0;
     padding: 0;
@@ -72,6 +12,69 @@ body {
     line-height: 1.6;
 }
 
+/* Sección principal (antes .hero) */
+.seccion-principal {
+    background: #102152;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 20px;
+    min-height: 70vh;
+}
+
+.caja-principal {
+    background: url("/static/img/fondo_azul.png") no-repeat center center/cover;
+    width: 80%;
+    max-width: 900px;
+    height: 400px;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.superposicion-principal {
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+}
+
+.superposicion-principal h1 {
+    font-size: 42px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.centro-principal {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.boton-principal {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #ffffff;
+    color: #102152;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 1px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.boton-principal:hover {
+    background: #102152;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Barra de navegación */
 .navbar {
     display: flex;
     justify-content: flex-end;
@@ -105,6 +108,7 @@ nav a:hover {
     color: #00BFA5;
 }
 
+/* Categorías / tarjetas */
 .categorias {
     display: flex;
     justify-content: space-around;
@@ -112,7 +116,7 @@ nav a:hover {
     background: linear-gradient(180deg, #102152 0%, #ffffff 100%);
 }
 
-.card {
+.tarjeta {
     background: rgba(255, 255, 255, 0.9);
     border-radius: 20px;
     padding: 30px;
@@ -122,22 +126,22 @@ nav a:hover {
     transition: transform 0.3s;
 }
 
-.card:hover {
+.tarjeta:hover {
     transform: translateY(-10px);
 }
 
-.card .icono {
+.tarjeta .icono {
     font-size: 50px;
     margin-bottom: 10px;
 }
 
-.card h3 {
+.tarjeta h3 {
     font-size: 24px;
     margin-bottom: 10px;
     color: #333;
 }
 
-.card p {
+.tarjeta p {
     font-size: 14px;
     color: #666;
 }
@@ -156,14 +160,14 @@ nav a:hover {
     text-transform: uppercase;
 }
 
-.mv-grid {
+.rejilla-mv {
     display: flex;
     justify-content: center;
     gap: 40px;
     flex-wrap: wrap;
 }
 
-.mv-card {
+.tarjeta-mv {
     background: linear-gradient(135deg, #00BFA5, #1b4d89);
     color: white;
     border-radius: 20px;
@@ -175,29 +179,29 @@ nav a:hover {
     transition: transform 0.3s;
 }
 
-.mv-card:hover {
+.tarjeta-mv:hover {
     transform: translateY(-10px);
 }
 
-.mv-card .icono {
+.tarjeta-mv .icono {
     font-size: 50px;
     margin-bottom: 20px;
     display: block;
 }
 
-.mv-card h3 {
+.tarjeta-mv h3 {
     font-size: 26px;
     margin-bottom: 15px;
     font-weight: bold;
 }
 
-.mv-card p {
+.tarjeta-mv p {
     font-size: 15px;
     line-height: 1.6;
 }
 
 @media (max-width: 768px) {
-    .hero {
+    .seccion-principal {
         flex-direction: column;
         text-align: center;
         padding: 50px 20px;
@@ -213,23 +217,24 @@ nav a:hover {
         align-items: center;
     }
 
-    .card,
+    .tarjeta,
     .beneficio {
         width: 80%;
         margin-bottom: 20px;
     }
 
-    .hero-center {
+    .centro-principal {
         flex-direction: column;
     }
 
-    .hero-button {
+    .boton-principal {
         width: 100%;
         margin-bottom: 10px;
     }
 }
 
-.bubbles {
+/* Burbujas animadas (antes .bubbles / .bubble) */
+.burbujas {
     position: absolute;
     top: 0;
     left: 0;
@@ -239,7 +244,7 @@ nav a:hover {
     z-index: 0;
 }
 
-.bubble {
+.burbuja {
     position: absolute;
     bottom: -100px;
     background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.1));

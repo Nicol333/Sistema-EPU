@@ -14,15 +14,16 @@
 <link rel="stylesheet" href="{% static 'usuarios/css/home_principal.css' %}">
 <link rel="stylesheet" href="{% static 'css/base_footer.css' %}">
 
+
 <!-- Hero principal -->
-<section class="hero">
-    <div class="bubbles"></div> <!-- contenedor burbujas -->
-    <div class="hero-box">
-        <div class="hero-overlay">
+<section class="seccion-principal">
+    <div class="burbujas"></div> <!-- contenedor burbujas -->
+    <div class="caja-principal">
+        <div class="superposicion-principal">
             <h1>Reporta incidencias en servicios públicos</h1>
-            <div class="hero-center">
-                <a href="{% url 'login' %}" class="hero-button">Login</a>
-                <a href="{% url 'registro_usuario' %}" class="hero-button">Registrarse</a>
+            <div class="centro-principal">
+                <a href="{% url 'login' %}" class="boton-principal">Login</a>
+                <a href="{% url 'registro_usuario' %}" class="boton-principal">Registrarse</a>
             </div>
         </div>
     </div>
@@ -30,17 +31,17 @@
 
 
 <section class="categorias">
-    <div class="card">
+    <div class="tarjeta">
         <span class="icono"><i class="bi bi-x-circle"></i></span>
         <h3>Infracciones</h3>
         <p>Inspección en casos</p>
     </div>
-    <div class="card">
+    <div class="tarjeta">
         <span class="icono"><i class="bi bi-building"></i></span>
         <h3>Daños</h3>
         <p>Anuncia problemas en infraestructura</p>
     </div>
-    <div class="card">
+    <div class="tarjeta">
         <span class="icono"><i class="bi bi-trash"></i></span>
         <h3>Residuos</h3>
         <p>Avisa sobre residuos especiales</p>
@@ -50,9 +51,9 @@
 <!-- Sección Misión y Visión -->
 <section class="mision-vision">
     <h2>Nuestra Misión y Visión</h2>
-    <div class="mv-grid">
+    <div class="rejilla-mv">
         <!-- Misión -->
-        <div class="mv-card">
+        <div class="tarjeta-mv">
             <span class="icono"><i class="bi bi-bullseye"></i></span>
             <h3>Misión</h3>
             <p>
@@ -62,7 +63,7 @@
             </p>
         </div>
         <!-- Visión -->
-        <div class="mv-card">
+        <div class="tarjeta-mv">
             <span class="icono"><i class="bi bi-eye"></i></span>
             <h3>Visión</h3>
             <p>
