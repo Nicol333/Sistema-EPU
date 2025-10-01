@@ -1,0 +1,290 @@
+
+.barra-header .menu-btn {
+    position: absolute;
+    left: 20px;
+    top: 15px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -260px;          
+    width: 260px;
+    max-width: 100vw;      
+    height: 100vh;         
+    background-color: #102152;
+    padding-top: 80px;
+    transition: left 0.3s ease;
+    z-index: 1050;
+    overflow-y: auto;     
+}
+
+.side-menu.active {
+    left: 0;
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-menu ul li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.side-menu ul li a {
+    display: block;
+    padding: 15px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background 0.3s ease, padding-left 0.3s ease;
+}
+
+.side-menu ul li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    padding-left: 30px;
+}
+
+.cerrar-header {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    color: #fff;
+    font-size: 3rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.cerrar-header:hover {
+    transform: scale(1.2);
+}
+
+/* Contenedor de botones alineado horizontalmente */
+.actions {
+    display: flex; /* mantiene los botones en fila */
+    gap: 12px; /* separación entre botones */
+}
+
+/* Cada botón con icono arriba y texto abajo */
+.actions button {
+    display: flex;
+    flex-direction: column; /* icono arriba, texto abajo */
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.actions button i {
+    font-size: 30px;
+}
+
+.actions button span {
+    font-size: 12px;
+    margin-top: 4px; /* separación entre icono y texto */
+}
+
+
+
+/* Barra de búsqueda hacia la derecha */
+.search {
+    margin-left: auto; /* empuja la barra de búsqueda al extremo derecho */
+    display: flex;
+    align-items: center;
+}
+
+.search input {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 220px; /* ajusta el ancho según lo necesites */
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Fondo gris claro */
+    color: #333;
+}
+
+/* Encabezado más grande */
+header {
+    background-color: #102152;
+    padding: 25px 40px;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 32px; /* título más grande */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header h1 i {
+    margin-right: 12px; /* más espacio entre icono y texto */
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* elementos alineados a la izquierda */
+    gap: 20px;
+}
+
+/* Menú hamburguesa */
+.menu i {
+    font-size: 28px; /* icono más grande */
+    cursor: pointer;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0; /* elimina márgenes extra */
+}
+/* Buscador */
+section.search-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 20px auto;
+}
+
+section.search-action input#buscar {
+    flex: 1;
+    padding: 8px 12px 8px 35px; /* espacio para el icono dentro */
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background: #fff url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/search.svg') no-repeat 10px center;
+    background-size: 16px 16px;
+}
+
+section.search-action button {
+    background-color: #102152;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin-left: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    transition: background 0.3s;
+}
+
+section.search-action button i {
+    margin-right: 5px;
+}
+
+section.search-action button:hover {
+    background-color: #1d3a8a;
+}
+
+/* Tabla de infracciones */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+thead {
+    background-color: #102152;
+}
+
+thead th {
+    color: #fff;
+    padding: 12px;
+    text-align: left;
+    font-weight: normal;
+}
+
+tbody tr {
+    border-bottom: 1px solid #dee2e6;
+    transition: background 0.3s;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f1f3f5; /* fila clara */
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #e9ecef; /* fila gris suave */
+}
+
+tbody tr:hover {
+    background-color: #1f5dbb;
+}
+
+tbody td {
+    padding: 12px;
+    vertical-align: middle;
+}
+
+tbody td img {
+    border-radius: 5px;
+    width: 80px;
+    display: block;
+    margin: 0 auto;
+}
+
+td:last-child {
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* Buscador interno */
+.search input {
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    width: 200px;
+}
+
+/* Botones en el header */
+.actions button {
+    background: none;
+    border: none;
+    color: #fff;
+    margin-left: 8px;
+    font-size: 20px; /* más grande */
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.actions button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}

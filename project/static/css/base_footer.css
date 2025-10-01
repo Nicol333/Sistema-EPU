@@ -1,0 +1,117 @@
+/* Footer */
+.footer {
+    background: #102152; /* Fondo oscuro alineado con el gradiente */
+    color: white;
+    padding: 20px 40px; /* Más padding horizontal para un look profesional */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaciado mayor entre secciones */
+    border-top: 2px solid #102152; /* Línea superior destacada */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between; /* Distribución uniforme */
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 25px; /* Espacio entre columnas */
+    max-width: 1200px; /* Límite para evitar expansión excesiva */
+    margin: 0 auto; /* Centrado */
+}
+
+.footer-contact,
+.footer-social,
+.footer-legal {
+    flex: 1;
+    min-width: 220px; /* Mínimo para legibilidad */
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px; /* Espacio entre ítems */
+    font-size: 14px; /* Texto más legible */
+}
+
+.contact-item .icon {
+    margin-right: 10px; /* Más separación del ícono */
+    font-size: 20px; /* Íconos un poco más grandes */
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icon {
+    color: white;
+    font-size: 28px; /* Íconos más prominentes */
+    text-decoration: none;
+    transition: color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
+    border-radius: 50%; /* Íconos circulares */
+}
+
+
+.footer-legal {
+    margin-top: 0; /* Sin margen superior inicial */
+    font-size: 13px; /* Texto más pequeño para legales */
+}
+
+.footer-legal a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500; /* Texto un poco más bold */
+}
+
+.footer-legal a:hover {
+    color: #00BFA5;
+}
+
+.footer-logo {
+    margin-top: 15px;
+}
+
+.footer-logo img {
+    max-height: 70px; /* Logo más grande y visible */
+    width: auto;
+    border-radius: 5px;
+}
+
+/* Responsive para el footer */
+@media (max-width: 768px) {
+    .footer {
+        padding: 15px 20px; /* Menos padding en mobile */
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .footer-contact,
+    .footer-social,
+    .footer-legal {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-logo {
+        margin-top: 10px;
+    }
+
+    .social-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+    }
+}

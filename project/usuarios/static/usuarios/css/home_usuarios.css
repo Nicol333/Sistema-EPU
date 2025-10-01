@@ -1,0 +1,265 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    min-height: 180px;
+    padding: 40px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /* Fondo tipo vidrio más sutil */
+    background-color: rgba(255, 255, 255, 0.15); /* Menos blanco */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+
+}
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("/static/img/fondo.png") no-repeat center center/cover;
+    opacity: 0.85; /* Imagen más visible */
+    z-index: 0;
+}
+
+.header > * {
+    position: relative;
+    z-index: 1;
+    color: #000000;
+}
+
+.header .logo img {
+    height: 60px;
+    transition: height 0.3s ease;
+}
+
+.nav-menu .nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #000000; 
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--verde);
+    transform: scale(1.05); 
+}
+
+.dropdown-css {
+    position: relative;
+    z-index: 2000; 
+}
+
+.dropdown-menu-css {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--azul); 
+    min-width: 150px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    padding: 5px 0;
+    list-style: none;
+    z-index: 3000; 
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.dropdown-css:hover .dropdown-menu-css {
+    display: block;
+    opacity: 1;
+}
+
+.dropdown-menu-css li a {
+    display: block;
+    padding: 8px 15px;
+    color: #000000; 
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+}
+
+.dropdown-menu-css li a:hover {
+    background-color: #163766; 
+}
+
+.hero {
+    color: var(--blanco);
+    text-align: center;
+    padding: 100px 20px 50px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1s ease-in-out;
+
+    /* Efecto vidrioso */
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 10px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+}
+
+.elemento-flotante {
+    position: absolute;
+    width: 100px;
+    opacity: 0.8;
+    transition: transform 0.5s ease;
+    animation: float 3s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
+}
+
+.flotante-arriba { top: 10%; right: 10%; }
+.flotante-principal { top: 30%; left: 50%; transform: translateX(-50%); }
+.flotante-abajo { bottom: 10%; left: 10%; }
+
+.card {
+    background-color: var(--blanco);
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+    color: var(--azul);
+    margin-bottom: 10px;
+}
+
+.card-text {
+    color: #000000; 
+    margin-bottom: 20px;
+}
+
+.card .btn {
+    background-color: var(--verde);
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.card .btn:hover {
+    background-color: #27ae60;
+    transform: scale(1.05);
+}
+
+body {
+    background: url("/static/img/PARAMO-DEL-SOL-URRAO.png") no-repeat center center/cover;
+    min-height: 100vh;
+    padding-top: 220px;
+}
+
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.content-cards .row {
+    row-gap: 20px;
+}
+
+.card-body {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 10px;
+    color: #000000;
+}
+
+.btn-primary {
+    background-color: var(--azul);
+    border: none;
+    color: #000000;
+font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #163766;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 20px;
+        min-height: 120px;
+    }
+    .header .logo img {
+        height: 40px;
+    }
+    .nav-menu .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        font-size: 0.9rem;
+    }
+    .hero {
+        padding: 60px 10px 30px;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .elemento-flotante {
+        width: 60px;
+    }
+    .card {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .nav-link {
+        font-size: 0.8rem;
+    }
+    .dropdown-menu-css {
+        min-width: 120px;
+    }
+}

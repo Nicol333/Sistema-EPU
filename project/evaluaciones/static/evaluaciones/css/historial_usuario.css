@@ -1,0 +1,181 @@
+/* Reset básico para body y html */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+}
+
+/* Header azul oscuro que ocupa todo el ancho */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0a2e6b; /* azul oscuro */
+    color: #fff;
+    padding: 15px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Contenedor izquierdo: menú + título */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* separación entre menú y título */
+}
+
+/* Menú hamburguesa */
+.menu-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 3rem; /* más grande */
+    cursor: pointer;
+}
+
+/* Título centrado verticalmente */
+.header-left h2 {
+    margin: 0;
+    font-size: 2rem; /* más grande */
+    font-weight: bold;
+    line-height: 1; /* para centrar vertical */
+}
+
+/* Contenedor derecho: eliminar + cerrar */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 25px; /* separación entre eliminar y X */
+}
+
+/* Botón eliminar más grande */
+.delete-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem; /* más grande */
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+.delete-btn:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+/* Botón cerrar (X) más grande */
+.cerrar a {
+    font-size: 2.2rem; /* más grande */
+    color: #fff;
+    text-decoration: none;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.cerrar a:hover {
+    transform: scale(1.2);
+    color: #fff;
+}
+
+/* Contenido principal */
+.main-content {
+    padding: 15px;
+}
+
+/* Tarjetas de reporte */
+.report-card {
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.report-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f1f1f1;
+    font-size: 0.9rem;
+}
+
+.status {
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: white;
+}
+
+.status-pendiente {
+    background-color: #ffc107; /* amarillo */
+}
+
+.status-resuelto {
+    background-color: #28a745; /* verde */
+}
+
+.report-body {
+    display: flex;
+    padding: 10px;
+    gap: 10px;
+}
+
+.report-info {
+    flex: 2;
+}
+
+.report-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.report-image img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.report-title {
+    margin: 5px 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.description {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.rating {
+    color: #ffc107;
+    margin: 5px 0;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.send-btn {
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.send-btn:hover {
+    background-color: #084298;
+}

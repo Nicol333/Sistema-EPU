@@ -1,0 +1,57 @@
+{% extends "base_footer.html" %}
+{% load static %}
+
+{% block title %}
+<title>Sobre mí</title>
+{% endblock %}
+
+{% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link rel="stylesheet" href="{% static 'usuarios/css/login.css' %}">
+
+<section class="login-section">
+    <div class="cerrar-login">
+        <a href="{% url 'home_usuario' %}" title="Cancelar e ir atrás">✖</a>
+    </div>
+
+    <div class="login-container">
+        <div class="login-box">
+            <h2><i class="bi bi-person-circle"></i>Sobre mí</h2>
+            <form class="sobre-mi-form">
+                <div class="form-group">
+                    <label for="nombre" class="form-label"><i class="bi bi-person"></i>Nombre</label>
+                    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nicol">
+                </div>
+
+                <div class="form-group">
+                    <label for="correo" class="form-label"><i class="bi bi-envelope"></i>Correo</label>
+                    <input type="email" id="correo" name="correo" class="form-control"
+                        placeholder="jimenezmorenonicol@gmail.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono" class="form-label"><i class="bi bi-telephone"></i>Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="321041563">
+                </div>
+
+                <div class="form-group">
+                    <label for="cedula" class="form-label"><i class="bi bi-credit-card"></i>Cédula</label>
+                    <input type="text" id="cedula" name="cedula" class="form-control" placeholder="101204153">
+                </div>
+
+                <div class="button-group d-flex gap-2 mt-3">
+                    <a href="{% url 'editar_perfil' %}" class="btn btn-primary editar">
+                        <i class="bi bi-pencil"></i>Editar perfil
+                    </a>
+
+                    <a href="{% url 'cambiar_contraseña' %}" class="btn btn-primary cambiar">
+                        <i class="bi bi-key"></i> Cambiar contraseña
+                    </a>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
