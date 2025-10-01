@@ -24,7 +24,7 @@
 }
 
 /* Fondo principal (misma imagen que login) */
-.register-section {
+.seccion-registro {
     min-height: 100vh;
     background: url("/static/img/fondo_azul.png") no-repeat center center/cover;
     display: flex;
@@ -35,19 +35,21 @@
 }
 
 /* Contenedor más ancho */
-.register-container {
+.contenedor-registro {
     width: 100%;
-    max-width: 500px; /* ancho aumentado */
+    /* Aumentado para que el formulario sea más grande en desktop */
+    max-width: 720px;
     position: relative;
     z-index: 2;
 }
 
 /* Caja translúcida (glassmorphism) */
-.register-box {
+.caja-registro {
     background: rgba(255, 255, 255, 0.14);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    padding: 48px 36px; /* más aire */
+    /* Más espacio interior para una caja visualmente mayor */
+    padding: 56px 48px;
     border-radius: 18px;
     border: 1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.38);
@@ -57,7 +59,7 @@
 }
 
 /* Título */
-.register-box h2 {
+.caja-registro h2 {
     color: #fff;
     font-size: 26px;
     margin-bottom: 26px;
@@ -67,14 +69,14 @@
     justify-content: center;
 }
 
-.register-box h2 i {
+.caja-registro h2 i {
     margin-right: 10px;
     color: #ffffff;
     font-size: 30px;
 }
 
 /* Form layout */
-.register-box form {
+.caja-registro form {
     display: flex;
     flex-direction: column;
     gap: 14px;
@@ -83,7 +85,7 @@
 }
 
 /* Labels */
-.form-label {
+.etiqueta-formulario {
     font-weight: 600;
     color: #e8f7f3; /* blanco suave */
     display: flex;
@@ -92,13 +94,13 @@
     margin-bottom: 6px;
 }
 
-.form-label i {
+.etiqueta-formulario i {
     color: #f3f3f3;
     font-size: 17px;
 }
 
 /* Inputs */
-.form-control {
+.control-formulario {
     border-radius: 8px;
     border: 1px solid rgba(255,255,255,0.15);
     padding: 12px 14px;
@@ -109,13 +111,13 @@
 }
 
 /* Input focus glow */
-.form-control:focus {
+.control-formulario:focus {
     outline: none;
     border-color: rgba(0,191,165,0.95);
     box-shadow: 0 6px 18px rgba(0,191,165,0.12);
 }
 
-.register-box button {
+.caja-registro button {
     background: transparent;
     border: none;
     padding: 0;
@@ -151,38 +153,38 @@
 
 
 /* Icono dentro del botón */
-.register-box .btn-primary i {
+.caja-registro .btn-primary i {
     font-size: 20px;
     line-height: 1;
 }
 
 /* Texto del botón con buena separación */
-.register-box .btn-primary span {
+.caja-registro .btn-primary span {
     display: inline-block;
     transform: translateZ(0);
 }
 
-/* Enlaces auxiliares */
-.register-box .text-end a,
-.register-box .text-center a {
+/* Enlaces auxiliares (si se usan utilidades de bootstrap dentro de la caja) */
+.caja-registro .text-end a,
+.caja-registro .text-center a {
     color: rgba(255,255,255,0.95);
     text-decoration: none;
     font-weight: 600;
     transition: color .18s ease, text-decoration .18s ease;
 }
 
-.register-box .text-end a:hover,
-.register-box .text-center a:hover {
+.caja-registro .text-end a:hover,
+.caja-registro .text-center a:hover {
     color: #00BFA5;
     text-decoration: underline;
 }
 
 /* Enlace "¿Ya tienes cuenta?" centrado */
-.register-box .text-center {
+.caja-registro .text-center {
     margin-top: 8px;
 }
 
-.login-link {
+.enlace-inicio-sesion {
     text-decoration: none;   /* Quita subrayado */
     color: #fff;             /* Blanco */
     font-weight: 500;
@@ -191,7 +193,7 @@
     margin-top: 10px;
 }
 
-.login-link:hover {
+.enlace-inicio-sesion:hover {
     color: #00BFA5;          /* Verde al pasar el mouse */
 }
 
@@ -204,11 +206,11 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-    .register-container { max-width: 92%; }
-    .register-box {
+    .contenedor-registro { max-width: 92%; }
+    .caja-registro {
         padding: 26px 18px;
         border-radius: 12px;
     }
-    .register-box h2 { font-size: 22px; }
-    .register-box .btn-primary { width: 100%; max-width: none; padding: 12px 18px; font-size: 16px; }
+    .caja-registro h2 { font-size: 22px; }
+    .caja-registro .btn-primary { width: 100%; max-width: none; padding: 12px 18px; font-size: 16px; }
 }
