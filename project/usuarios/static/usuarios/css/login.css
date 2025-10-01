@@ -7,17 +7,17 @@
 
 /* Forzar tamaño de la X en cerrar-login */
 .cerrar-login a {
-    display: flex !important;            /* forzamos a bloque flexible */
+    display: flex !important;            
     align-items: center;
     justify-content: center;
-        font-size: 56px; /* tamaño base del enlace (icono escalable) */
-    width: 80px !important;              /* área clickeable más grande */
+        font-size: 56px; 
+    width: 80px !important;              
     height: 80px !important;
     line-height: 1 !important;
-    color: #ffffff !important;           /* color blanco */
-    background: transparent !important;  /* sin fondo */
+    color: #ffffff !important;           
+    background: transparent !important;  
     border: none !important;
-    border-radius: 50%;                  /* opcional: en círculo */
+    border-radius: 50%;                  
     cursor: pointer;
     z-index: 4000;
     transition: transform 0.2s ease, color 0.2s ease;
