@@ -1,16 +1,16 @@
+{% load static %}
+
+{% block content %}
 <!-- Modal de Términos y Condiciones -->
 <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                <h5 class="modal-title" id="termsModalLabel">Términos y Condiciones</h5>
             </div>
             <div class="modal-body">
-
-                <h1>Términos y Condiciones</h1>
-
                 <section>
-                    <h2>Bienvenida</h2>
+                    <h2>Bienvenido</h2>
                     <p>Bienvenido al Sistema de Gestión de Reportes de Empresas Públicas de Urrao. Al usar esta
                         plataforma, aceptas estas normas para asegurar un uso correcto y seguro del servicio.</p>
                 </section>
@@ -22,7 +22,7 @@
                             especiales.</li>
                         <li>Seguir el estado de tus reportes y recibir notificaciones sobre su progreso.</li>
                         <li>Calificar el servicio recibido y dejar comentarios.</li>
-                        <li>Enviar reportes de forma anónima si lo deseas.</li>
+                        <li>Enviar reportes de infracciones de forma anónima si lo deseas.</li>
                     </ul>
                 </section>
 
@@ -93,6 +93,13 @@
                         normativa vigente.</p>
                 </section>
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-aceptar" data-bs-dismiss="modal">Aceptar</button>
+            </div>
         </div>
     </div>
 </div>
+
+<!-- Estilos movidos a usuarios/static/usuarios/css/terminos.css -->
+{% endblock %}

@@ -197,6 +197,20 @@
     color: #00BFA5;          /* Verde al pasar el mouse */
 }
 
+/* Enlace de Términos y Condiciones: igual que en login */
+.terminos-link {
+    text-decoration: none;    /* Quitar subrayado */
+    color: #ffffff;           /* Blanco por defecto */
+    transition: color 0.3s ease; 
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.terminos-link:hover,
+.terminos-link:focus {
+    color: #00BFA5; /* Agua marino / turquesa al pasar */
+}
+
 
 /* Animación de entrada (ligera) */
 @keyframes fadeInUp {
