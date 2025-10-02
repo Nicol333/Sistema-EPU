@@ -12,7 +12,10 @@
 
 <section class="login-section">
     <div class="cerrar-login">
-        <a href="{% url 'home_usuario' %}" title="Cancelar e ir atrás">✖</a>
+        <a href="{% url 'home_usuario' %}" title="Cancelar e ir atrás" aria-label="Cerrar">
+            <i class="bi bi-x-lg" aria-hidden="true"></i>
+            <span class="cerrar-label">Cerrar</span>
+        </a>
     </div>
 
     <div class="login-container">
