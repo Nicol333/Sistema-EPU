@@ -1,4 +1,4 @@
-{% extends "base_footer.html" %}
+L{% extends "base_footer.html" %}
 {% load static %}
 
 {% block title %}
@@ -12,7 +12,8 @@
 
 <header>
     <div>
-        <img src="logo.png" alt="Logo" width="50">
+        <img src="{% static 'img/logo.png' %}" srcset="{% static 'img/logo.png' %} 1x, {% static 'img/logo.png' %} 2x"
+            alt="Logo" class="brand-logo" width="48" height="48">
     </div>
     <nav>
         <ul>
@@ -56,7 +57,7 @@
             </div>
         </div>
     </section>
-    <div class="container py-5">
+    <div class="container">
         <div class="content-cards">
             <div class="row">
                 <div class="col-md-6 mb-3">

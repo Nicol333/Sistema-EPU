@@ -1,6 +1,6 @@
 // static/js/menu.js
 document.addEventListener('DOMContentLoaded', () => {
-    const menuBtn = document.querySelector('.menu-btn');
+    const menuBtn = document.querySelector('.menu-btn, .boton-menu');
     const sideMenu = document.getElementById('side-menu');
 
     if (menuBtn && sideMenu) {

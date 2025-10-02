@@ -42,7 +42,8 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
 
-.barra-header .menu-btn {
+.barra-header .menu-btn,
+.barra-header .boton-menu {
     position: absolute;
     left: 20px;
     top: 15px;
@@ -72,6 +73,97 @@ body {
 
 .cerrar-header:hover {
     transform: scale(1.2);
+}
+
+/* Panel lateral (alias: .side-menu for compatibility) */
+.menu-lateral, .side-menu {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 260px;
+    max-width: 100vw;
+    height: 100vh;
+    background-color: #102152;
+    padding-top: 80px;
+    transition: left 0.3s ease;
+    z-index: 1050;
+    overflow-y: auto;
+}
+
+.menu-lateral.active, .side-menu.active { left: 0; }
+
+.menu-lateral ul, .side-menu ul { list-style: none; padding: 0; margin: 0; }
+.menu-lateral ul li, .side-menu ul li { border-bottom: 1px solid rgba(255,255,255,0.1); }
+.menu-lateral ul li a, .side-menu ul li a {
+    display: block;
+    padding: 15px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background 0.3s ease, padding-left 0.3s ease;
+}
+.menu-lateral ul li a:hover, .side-menu ul li a:hover { background: rgba(255,255,255,0.1); padding-left: 30px; }
+
+/* Small compatibility helpers / Spanish aliases */
+.boton-menu { background: none; border: none; color: #fff; font-size: 2rem; cursor: pointer; }
+.contenido-subida { display: block; }
+.input-subida { display: inline-block; }
+
+.cerrar-header {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    color: #fff;
+    font-size: 3rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.cerrar-header:hover {
+    transform: scale(1.2);
+}
+
+/* Ocultar la etiqueta de texto 'Cerrar' y dibujar una X más gruesa con pseudo-elementos */
+.cerrar-header .cerrar-label {
+    display: none; /* ocultar el texto */
+}
+
+/* Ajustes para que la X sea gruesa y centrada */
+.cerrar-header {
+    width: 54px; /* espacio cuadrado para la X */
+    height: 54px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    overflow: visible;
+}
+
+/* Ocultar icono de bootstrap y usar pseudo-elementos para una X gruesa */
+.cerrar-header .bi {
+    display: none;
+}
+
+.cerrar-header::before,
+.cerrar-header::after {
+    content: '';
+    position: absolute;
+    width: 34px; /* largo de las barras */
+    height: 6px; /* grosor de la X */
+    background: #ffffff;
+    border-radius: 3px;
+    left: 50%;
+    top: 50%;
+    transform-origin: center;
+}
+.cerrar-header::before { transform: translate(-50%, -50%) rotate(45deg); }
+.cerrar-header::after  { transform: translate(-50%, -50%) rotate(-45deg); }
+
+.cerrar-header:hover::before,
+.cerrar-header:hover::after {
+    background: #ffffff;
 }
 
 /* ========== Contenido principal ========== */
@@ -142,6 +234,17 @@ body {
     color: #ff4d4d;
 }
 
+/* Layout helper used in templates: .campos-grid wraps groups of inputs.
+   We only want vertical spacing between rows, not horizontal gaps. */
+.campos-grid {
+    /* Force a single column so fields are stacked vertically */
+    display: block;
+}
+
+.grupo-input {
+    margin-bottom: 14px; /* vertical spacing between inputs */
+}
+
 .input-con-icono {
     position: relative;
 }
@@ -149,8 +252,9 @@ body {
 .input-icono {
     position: absolute;
     left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
+    /* Align with the first line of text (top) so textarea and input text align with the icon */
+    top: 12px;
+    transform: none;
     color: #000000;
     font-size: 1.2rem;
 }
@@ -166,6 +270,70 @@ body {
     background: rgba(255, 255, 255, 0.15);
     color: #000000;
 }
+
+select.form-select option {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* Placeholder / disabled option - make it dark blue */
+select.form-select option[disabled] {
+    background-color: #102152 !important; /* dark blue */
+    color: #ffffff !important;
+}
+
+/* Hover and selected states inside the dropdown */
+select.form-select option:hover,
+select.form-select option:checked {
+    background-color: #0b2a57 !important; /* slightly darker blue */
+    color: #ffffff !important;
+}
+
+/* Custom select (fallback when native option styling is insufficient) */
+.custom-select-wrapper {
+    position: relative;
+    width: 100%;
+}
+.custom-select {
+    background: #ffffff;
+    border: 1px solid #cfd8e3;
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.custom-select:after {
+    content: '\25BC';
+    font-size: 0.6rem;
+    margin-left: 8px;
+}
+.custom-options {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 6px);
+    background: #102152; /* dark blue */
+    border-radius: 6px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    z-index: 2000;
+    max-height: 220px;
+    overflow: auto;
+    display: none;
+}
+.custom-option {
+    padding: 8px 12px;
+    color: #ffffff;
+    cursor: pointer;
+}
+.custom-option:hover, .custom-option.active {
+    background: #0b2a57;
+}
+.custom-select.open + .custom-options { display: block; }
+
+/* hide the native select visually but keep it in the DOM for form submission */
+.custom-select-native { display: none; }
 
 .input-formulario::placeholder,
 .textarea-formulario::placeholder {
@@ -185,7 +353,7 @@ body {
 }
 
 /* Upload */
-.upload-area {
+.area-subida {
     border: 2px dashed #102152;
     border-radius: 10px;
     padding: 25px;
@@ -196,7 +364,24 @@ body {
     color: #000000;
 }
 
-.upload-area:hover {
+.area-subida:hover {
+    border-color: #00BFA5;
+    font-size: large;
+}
+
+/* Aliases: maintain compatibility with original class names used across the app */
+.upload-area, .area-subida { 
+    border: 2px dashed #102152;
+    border-radius: 10px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.3s;
+    color: #000000;
+}
+
+.upload-area:hover, .area-subida:hover {
     border-color: #00BFA5;
     font-size: large;
 }
@@ -289,4 +474,70 @@ body {
     .seccion-titulo {
         font-size: 1.4rem;
     }
+}
+
+/* Estilos para el toggle anonimo */
+.toggle-icon, .icono-toggle {
+    /* Make the toggle a visible pill switch so it doesn't depend on the icon font */
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    border-radius: 20px;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: 0; /* hide any icon font glyph inside */
+    transition: background-color 0.18s ease, transform 0.12s ease;
+}
+
+/* knob */
+.toggle-icon::after, .icono-toggle::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #ffffff;
+    top: 50%;
+    left: 4px;
+    transform: translateY(-50%);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    transition: transform 0.18s ease;
+}
+
+/* off state: dark blue background, knob to left */
+.toggle-icon.bi-toggle-off, .icono-toggle.bi-toggle-off {
+    background-color: #102152;
+}
+
+/* Make the toggle label text match the section title size/weight */
+.toggle-label {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #000000;
+    vertical-align: middle;
+    margin-right: 6px; /* small space before the switch */
+}
+
+/* Ensure toggle container aligns label and switch, and that the switch is visible */
+.seccion-contenido.toggle-opciones {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* keep label and switch together */
+    gap: 6px; /* small gap between label and switch */
+}
+
+.icono-toggle {
+    display: inline-block; /* ensure it has layout */
+    font-size: 0; /* keep glyph hidden if icon font present */
+    width: 44px;
+    height: 24px;
+}
+
+/* on state: green background, knob shifts right */
+.toggle-icon.bi-toggle-on, .icono-toggle.bi-toggle-on {
+    background-color: #00BFA5;
+}
+.toggle-icon.bi-toggle-on::after, .icono-toggle.bi-toggle-on::after {
+    transform: translate(20px, -50%);
 }

@@ -17,6 +17,11 @@ header {
     top: 0; left: 0;
     width: 100%;
     z-index: 1000;
+.btn-primary:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
     height: 80px;
     padding: 0 40px;
     display: flex;
@@ -79,19 +84,25 @@ header nav ul li a.yo-link:hover {
     animation: fadeIn 1s ease-in-out;
 }
 
-.hero h1 {
-    font-size: 2.2rem;
-    margin-bottom: 10px;
-    color: #102152;
+
+.card {
+    width: 280px;
+    height: 280px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    background-color: var(--blanco);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.hero p {
-    font-size: 1.1rem;
-}
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
 .btn-primary {
@@ -156,14 +167,18 @@ header nav ul li a.yo-link:hover {
 }
 
 .card {
-    width: 280px;   
+    width: 280px;
     height: 280px;
     border-radius: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center; 
-    margin: auto;      
+    text-align: center;
+    margin: auto;
+    background-color: var(--blanco);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
 }
 
 .card:hover {
@@ -171,21 +186,16 @@ header nav ul li a.yo-link:hover {
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
-.card {
-    background-color: var(--blanco);
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-}
-
-.card-title {
-    color: var(--azul);
-    margin-bottom: 10px;
+.btn-primary {
+    background-color: #163766;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-text {

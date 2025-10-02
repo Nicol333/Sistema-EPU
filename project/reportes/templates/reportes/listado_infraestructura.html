@@ -39,7 +39,10 @@
         <div class="actions">
             <button><i class="bi bi-download"></i><span>Descargar</span></button>
             <button><i class="bi bi-arrow-repeat"></i><span>Actualizar</span></button>
-            <a href="{% url 'home_administrador' %}" class="cerrar-header" title="Cancelar e ir atrás">✖</a>
+            <a href="{% url 'home_administrador' %}" class="cerrar-header" title="Cancelar e ir atrás">
+                <i class="bi bi-x-lg" aria-hidden="true"></i>
+                <span class="cerrar-label">Cerrar</span>
+            </a>
         </div>
 
     </div>

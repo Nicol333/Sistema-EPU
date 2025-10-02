@@ -15,7 +15,9 @@
     <!-- Título centrado -->
     <h1 class="titulo-header">Calificaciones y comentarios de reportes</h1>
 
-    <a href="{% url 'home_administrador' %}" class="cerrar-header" title="Cancelar e ir atrás">✖</a>
+    <a href="{% url 'home_administrador' %}" class="cerrar-header" title="Cancelar e ir atrás" aria-label="Cerrar">
+        <span class="cerrar-label">Cerrar</span>
+    </a>
 </div>
 
 <!-- 🔹 Menú lateral -->
@@ -31,9 +33,7 @@
         <li><a href="{% url 'home' %}"><i class="bi bi-box-arrow-right"></i> Cerrar sesión</a></li>
     </ul>
 </nav>
-
 <body>
-
     <div class="dashboard">
         <div class="summary-cards">
             <div class="card-summary">
@@ -42,7 +42,7 @@
             </div>
             <div class="card-summary">
                 <h3>Promedio de estrellas</h3>
-                <p class="numeros">2,4 <span class="stars">★★★★☆</span></p>
+                <p class="numeros">2,4 <span class="stars no-anim">★★★★☆</span></p>
             </div>
             <div class="card-summary">
                 <h3>Calificaciones</h3>
@@ -70,61 +70,90 @@
             </select>
         </div>
 
-        <div class="report-card">
-            <div class="report-header">
-                <span class="category">Infracciones</span>
-                <span class="user">Anónimo</span>
-            </div>
-            <div class="report-body">
-                <img src="https://via.placeholder.com/100" alt="Imagen reporte">
-                <div class="report-info">
-                    <h4>Paso por la será y estaba lleno de basura</h4>
-                    <p>Calle 30 #48B</p>
-                    <p>El problema se resolvió rápidamente</p>
-                    <div class="stars">★★★★★</div>
-                    <button>Ver detalle</button>
+        {% if reportes %}
+            {% for reporte in reportes %}
+                <div class="report-card" data-report-id="{{ reporte.id }}">
+                    <div class="report-header">
+                        <span class="category">{{ reporte.get_tipo_reporte_display }}</span>
+                        <span class="user">{% if reporte.ciudadano %}{{ reporte.ciudadano.username }}{% else %}Anónimo{% endif %}</span>
+                    </div>
+                    <div class="report-body">
+                        {% if reporte.imagen %}
+                            <img src="{{ reporte.imagen.url }}" alt="Imagen reporte">
+                        {% else %}
+                            <img src="https://via.placeholder.com/100" alt="Imagen reporte">
+                        {% endif %}
+                        <div class="report-info">
+                            <h4>{{ reporte.descripcion|truncatechars:60 }}</h4>
+                            <p>{{ reporte.ubicacion }}</p>
+                            <p>{{ reporte.estado }}</p>
+                            <div class="stars no-anim" data-initial="{{ reporte.avg_cal|default:0 }}"></div>
+                            <div class="avg">{{ reporte.avg_cal|default:"0" }} / {{ reporte.count_cal|default:"0" }}</div>
+                            <button>Ver detalle</button>
+                        </div>
+                    </div>
+                    <div class="report-date">{{ reporte.fecha_creacion|date:'d/m/Y' }}</div>
                 </div>
+            {% endfor %}
+        {% else %}
+            <!-- Fallback static cards -->
+            <div class="report-card" data-report-id="0">
+                <div class="report-header">
+                    <span class="category">Infracciones</span>
+                    <span class="user">Anónimo</span>
+                </div>
+                <div class="report-body">
+                    <img src="https://via.placeholder.com/100" alt="Imagen reporte">
+                    <div class="report-info">
+                        <h4>Paso por la será y estaba lleno de basura</h4>
+                        <p>Calle 30 #48B</p>
+                        <p>El problema se resolvió rápidamente</p>
+                        <div class="stars no-anim" data-initial="5"></div>
+                        <button>Ver detalle</button>
+                    </div>
+                </div>
+                <div class="report-date">12/01/2025</div>
             </div>
-            <div class="report-date">12/01/2025</div>
-        </div>
 
-        <div class="report-card">
-            <div class="report-header">
-                <span class="category">Infraestructura</span>
-                <span class="user">Daniel</span>
-            </div>
-            <div class="report-body">
-                <img src="https://via.placeholder.com/100" alt="Imagen reporte">
-                <div class="report-info">
-                    <h4>Tubo roto</h4>
-                    <p>Calle 3 #48B</p>
-                    <p>Excelente trabajo en el arreglo</p>
-                    <div class="stars">★★★★★</div>
-                    <button>Ver detalle</button>
+            <div class="report-card">
+                <div class="report-header">
+                    <span class="category">Infraestructura</span>
+                    <span class="user">Daniel</span>
                 </div>
+                <div class="report-body">
+                    <img src="https://via.placeholder.com/100" alt="Imagen reporte">
+                    <div class="report-info">
+                        <h4>Tubo roto</h4>
+                        <p>Calle 3 #48B</p>
+                        <p>Excelente trabajo en el arreglo</p>
+                        <div class="stars no-anim" data-initial="5"></div>
+                        <button>Ver detalle</button>
+                    </div>
+                </div>
+                <div class="report-date">11/01/2025</div>
             </div>
-            <div class="report-date">11/01/2025</div>
-        </div>
 
-        <div class="report-card">
-            <div class="report-header">
-                <span class="category">Reciclaje especial</span>
-                <span class="user">Sara</span>
-            </div>
-            <div class="report-body">
-                <img src="https://via.placeholder.com/100" alt="Imagen reporte">
-                <div class="report-info">
-                    <h4>Llantas</h4>
-                    <p>Calle 3 #48B</p>
-                    <p>Tardaron mucho en recogieras</p>
-                    <div class="stars">★★★☆☆</div>
-                    <button>Ver detalle</button>
+            <div class="report-card">
+                <div class="report-header">
+                    <span class="category">Reciclaje especial</span>
+                    <span class="user">Sara</span>
                 </div>
+                <div class="report-body">
+                    <img src="https://via.placeholder.com/100" alt="Imagen reporte">
+                    <div class="report-info">
+                        <h4>Llantas</h4>
+                        <p>Calle 3 #48B</p>
+                        <p>Tardaron mucho en recogieras</p>
+                        <div class="stars no-anim" data-initial="3"></div>
+                        <button>Ver detalle</button>
+                    </div>
+                </div>
+                <div class="report-date">10/01/2025</div>
             </div>
-            <div class="report-date">10/01/2025</div>
-        </div>
+        {% endif %}
     </div>
 </body>
 
 <script src="{% static 'reportes/js/menu.js' %}"></script>
+<script src="{% static 'evaluaciones/js/stars.js' %}"></script>
 {% endblock %}

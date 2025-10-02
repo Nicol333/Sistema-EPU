@@ -87,95 +87,187 @@ html, body {
 
 /* Tarjetas de reporte */
 .report-card {
-    background-color: white;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 16px auto;
+    --card-pad: 16px; /* espacio interno unificado para alineación */
+    /* Sombreado con tinte azul para resaltar la tarjeta */
+    box-shadow: 0 3px 12px rgba(16, 33, 82, 0.20),
+                0 1px 3px rgba(16, 33, 82, 0.10);
+    border: 1px solid rgba(16, 33, 82, 0.12);
     overflow: hidden;
+    max-width: 980px; /* limitar ancho similar al boceto */
+    position: relative; /* referencia para posicionar el botón en la esquina */
 }
 
+/* Resaltado suave al pasar el mouse */
+.report-card:hover {
+    box-shadow: 0 6px 18px rgba(16, 33, 82, 0.28),
+                0 2px 6px rgba(16, 33, 82, 0.14);
+}
+
+/* (Revert) sin variantes por tarjeta: el color va solo en la etiqueta de estado */
+
+/* Header de la tarjeta */
 .report-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: #f1f1f1;
-    font-size: 0.9rem;
+    display: grid;
+    grid-template-columns: 1fr auto; /* fecha a la izquierda, estado a la derecha */
+    align-items: start;
+    padding: 8px 12px;
+    background-color: #fafafa;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 0.95rem;
 }
+.report-date { color: #111827; }
 
+/* Estado en contorno (outline) */
 .status {
-    padding: 3px 6px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    color: white;
-}
-
-.status-pendiente {
-    background-color: #ffc107; /* amarillo */
-}
-
-.status-resuelto {
-    background-color: #28a745; /* verde */
-}
-
-.report-body {
-    display: flex;
-    padding: 10px;
-    gap: 10px;
-}
-
-.report-info {
-    flex: 2;
-}
-
-.report-image {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.report-image img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+    padding: 4px 10px;
     border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 2px solid #94a3b8; /* gris azulado */
+    color: #111827;
+    background: transparent;
+}
+.status-pendiente {
+    border-color: #60a5fa;   
+    background: #dbeafe;    
+    color: #102152;          /* azul oscuro (coherente con el sistema) */
+}
+.status-en-proceso {
+    border-color: #eab308;
+    background: #fde047; /* amarillo sólido */
+    color: #000;         /* texto negro */
+}
+.status-resuelto { border-color: #22c55e; color: #14532d; }
+
+/* Cuerpo de la tarjeta: tres zonas como en el boceto */
+.report-body {
+    display: grid;
+    grid-template-columns: 280px 1fr 240px; /* info izquierda, descripción centro, imagen derecha */
+    gap: 16px;
+    padding: var(--card-pad); /* padding uniforme; el botón usa el mismo offset */
+    align-items: stretch; /* permitir que la columna derecha se estire a toda la altura */
+    position: relative;   /* referencia para alinear el botón con el padding interno */
 }
 
-.report-title {
-    margin: 5px 0;
-    font-size: 1.1rem;
-    font-weight: bold;
-}
+/* Columna izquierda: icono+titulo, estrellas y comentario */
+.report-info { display: grid; grid-template-rows: auto auto auto auto; gap: 10px; }
+.service-header { display: grid; grid-template-columns: 28px 1fr; align-items: center; gap: 8px; }
+.service-header i { font-size: 28px; color: #0f172a; }
+.report-title { margin: 0; font-size: 1.05rem; font-weight: 700; color: #0f172a; }
+.rating { margin: 4px 0; color: #ffc107; }
 
+/* Columna central: textarea de descripción con altura intermedia */
 .description {
     width: 100%;
-    height: 40px;
-    margin-bottom: 5px;
-    font-size: 0.9rem;
+    min-height: 70px;
+    resize: vertical;
+    padding: 8px 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.95rem;
 }
 
-.rating {
-    color: #ffc107;
-    margin: 5px 0;
+/* Columna derecha: imagen y botón debajo */
+.report-image {
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* imagen arriba, espacio flexible, botón abajo */
+    justify-items: end;
+    align-items: start;
+    gap: 10px;
+    align-self: stretch; /* ocupar toda la altura de la fila */
+}
+.report-image img { width: 210px; height: 120px; object-fit: cover; border-radius: 6px; }
+.send-btn {
+    position: absolute;    /* anclar al contenedor interno */
+    right: var(--card-pad);   /* alineado con el padding derecho */
+    bottom: var(--card-pad);  /* alineado con el padding inferior */
+    background: #102152;
+    color: #fff;
+    border: 1px solid #0c1a41;
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    z-index: 1;
+}
+/* Alinear el input de comentario a la misma línea de base que el botón */
+.report-info input[type="text"] {
+    margin-top: auto;   /* empuja el input hacia abajo dentro de su columna */
+    margin-bottom: 0;   /* usa exactamente el padding inferior del contenedor */
+    align-self: end;    /* alinear al borde inferior de la celda */
+}
+.send-btn:hover { background: #1d3a8a; }
+
+/* Stars styling: match admin view (large, animated) */
+.stars {
+    display: inline-block;
+    user-select: none;
+    color: gold;
+}
+.stars .star {
+    font-size: 32px;
+    color: #d1d5db;
+    cursor: pointer;
+    padding: 0 4px;
+    transition: transform 0.08s ease, color 0.12s ease;
+}
+.stars .star.filled {
+    color: gold;
+    transform: scale(1.05);
+}
+.stars .star.hover {
+    color: #ffdd55;
+    transform: scale(1.35);
+}
+@media (min-width: 720px) {
+    .report-info .stars .star { font-size: 38px; }
+}
+.stars .star:focus {
+    outline: 2px solid rgba(16,33,82,0.2);
+    outline-offset: 3px;
 }
 
 input[type="text"] {
     width: 100%;
-    padding: 6px;
-    margin-bottom: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 8px 10px;
+    margin-bottom: 2px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
 }
 
-.send-btn {
-    background-color: #0d6efd;
-    color: white;
+/* el botón se redefine arriba para esta vista */
+
+/* === Header (historial): style delete button like 'Descargar' === */
+.barra-header {
+    position: relative;
+}
+.barra-header .delete-btn {
+    position: absolute;
+    right: 92px; /* espacio suficiente respecto a la X (54px + margen) */
+    top: 15px;   /* alinear verticalmente con la X y el menú */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: none;
     border: none;
-    padding: 6px 12px;
-    border-radius: 4px;
+    color: #fff;
+    padding: 6px 8px; /* mismos paddings que acciones del listado */
+    border-radius: 8px;
     cursor: pointer;
 }
-
-.send-btn:hover {
-    background-color: #084298;
+.barra-header .delete-btn i {
+    font-size: 1.6rem; /* tamaño de icono coherente con listado */
+    line-height: 1;
+}
+.barra-header .delete-btn .action-label {
+    margin-top: 4px;
+    font-size: 12px;  /* texto más pequeño y consistente con acciones */
+    font-weight: 600;
+    line-height: 1;   /* evitar saltos verticales */
+}
+.barra-header .delete-btn:hover {
+    background-color: rgba(255,255,255,0.1);
 }

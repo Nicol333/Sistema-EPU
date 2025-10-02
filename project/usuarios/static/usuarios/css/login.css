@@ -17,10 +17,11 @@
     color: #ffffff !important;           /* color blanco */
     background: transparent !important;  /* sin fondo */
     border: none !important;
-    border-radius: 50%;                  /* opcional: en círculo */
+    border-radius: 0 !important;         /* sin círculo */
     cursor: pointer;
     z-index: 4000;
     transition: transform 0.2s ease, color 0.2s ease;
+    text-decoration: none !important;    /* quitar subrayado del enlace */
 }
 
 /* Hover */
@@ -46,14 +47,16 @@
 }
 
 .login-box .cerrar-login a {
-    font-size: 88px !important;
+    /* Mantener la X dentro del contenedor */
+    position: relative !important;
+    width: 44px !important;
+    height: 44px !important;
     line-height: 1 !important;
-    padding: 6px 10px !important;
-    width: auto !important;
-    height: auto !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
+    padding: 0 !important;
+    text-decoration: none !important; /* asegurar que nunca se subraye */
 }
 
 @media (max-width: 480px) {
@@ -95,6 +98,7 @@
     text-align: left;
     position: relative;
     animation: fadeInUp 0.6s ease;
+    overflow: hidden; /* evita que elementos sobresalgan de los bordes redondeados */
 }
 
 .login-box form {
@@ -230,16 +234,15 @@
 
 .login-box > .cerrar-login {
     position: absolute;
-    top: 8px; /* pegar más al borde superior */
-    right: 8px; /* pegar más al borde derecho */
+    top: 10px; /* pequeño margen para no tocar el borde redondeado */
+    right: 10px;
     z-index: 4000;
 }
 
-/* REGLA FINAL para hacer la X realmente grande */
+/* Tamaño controlado de la X dentro del contenedor */
 .login-box .cerrar-login a {
-    font-size: 90px !important;    /* tamaño grande */
-    width: auto !important;        
-    height: auto !important;       
+    width: 40px !important;
+    height: 40px !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -248,8 +251,8 @@
     background: transparent !important;
     border: none !important;
     cursor: pointer;
-    z-index: 5000 !important;      /* más arriba de todo */
-    padding: 0 !important;         /* evita que se reduzca */
+    z-index: 5000 !important;
+    padding: 0 !important;
 }
 
 @media (max-width: 480px) {
@@ -261,17 +264,34 @@
 /* eliminar pseudo-elementos en caso de que existan reglas anteriores */
 .login-box > .cerrar-login a::before,
 .login-box > .cerrar-login a::after {
-    content: none !important;
+    /* dibujar una X gruesa como en el resto del sistema */
+    content: '' !important;
+    position: absolute;
+    width: 26px;   /* más pequeña para no salir del borde */
+    height: 4px;
+    background: #ffffff;
+    border-radius: 3px;
+    left: 50%;
+    top: 50%;
+    transform-origin: center;
 }
+.login-box > .cerrar-login a::before { transform: translate(-50%, -50%) rotate(45deg); }
+.login-box > .cerrar-login a::after  { transform: translate(-50%, -50%) rotate(-45deg); }
+
+/* Ocultar el icono y la etiqueta textual, usar solo pseudo-elementos para la X */
+.login-box > .cerrar-login a .bi { display: none !important; }
+.login-box > .cerrar-login a .cerrar-label { display: none !important; }
 
 .login-box > .cerrar-login a:hover {
-    transform: scale(1.06);
+    transform: none !important; /* evitar que se salga del borde */
     color: #00BFA5 !important;
+    text-decoration: none !important;
 }
 
 .login-box > .cerrar-login a:focus {
     outline: none !important;
     box-shadow: none !important;
+    text-decoration: none !important;
 }
 
 @media (max-width: 480px) {
@@ -334,3 +354,34 @@
         height: 56px !important;
     }
 }
+
+/* === Variante Sobre mí: X delgada como en la imagen (solo si .cerrar-login es hijo directo de .login-section) === */
+section.login-section > .cerrar-login a {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 64px !important;              /* aumentar área para una X más grande */
+    height: 64px !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 !important;         /* asegurar sin círculo en esta variante */
+}
+section.login-section > .cerrar-login a .bi,
+section.login-section > .cerrar-login a .cerrar-label { display: none !important; }
+section.login-section > .cerrar-login a::before,
+section.login-section > .cerrar-login a::after {
+    content: '';
+    position: absolute;
+    width: 40px;   /* largo mayor de la X */
+    height: 6px;   /* grosor más marcado */
+    background: #ffffff;
+    border-radius: 2px; /* puntas suavizadas */
+    left: 50%;
+    top: 50%;
+    transform-origin: center;
+}
+section.login-section > .cerrar-login a::before { transform: translate(-50%, -50%) rotate(45deg); }
+section.login-section > .cerrar-login a::after  { transform: translate(-50%, -50%) rotate(-45deg); }
+section.login-section > .cerrar-login a:hover { transform: scale(1.06); }

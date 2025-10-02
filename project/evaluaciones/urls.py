@@ -5,4 +5,5 @@ urlpatterns = [
     # Tus rutas existentes...
     path('historial-usuario/', views.historial_usuario, name='historial_usuario'),
     path('calificaciones-admin/', views.calificaciones_administrador, name='calificaciones_admin'),
+    path('rate-reporte/', views.rate_reporte, name='rate_reporte'),
 ]

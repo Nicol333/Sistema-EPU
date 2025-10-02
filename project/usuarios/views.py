@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from .models import User
 
 
 # Página principal (home general del sistema)
@@ -20,19 +21,19 @@ def registro_usuario(request):
     return render(request, 'usuarios/registro_usuario.html')
 
 def gestionar_usuarios(request):
-    return render(request, 'gestionar_usuarios.html')
+    return render(request, 'usuarios/gestionar_usuarios.html')
 
 def registrar_funcionario(request):
-    return render(request, 'registrar_funcionario.html')
+    return render(request, 'usuarios/registrar_funcionario.html')
 
 def gestionar_funcionarios(request):
-    return render(request, 'gestionar_funcionarios.html')
+    return render(request, 'usuarios/gestionar_funcionario.html', )
 
 def sobre_mi(request):
     return render(request, 'usuarios/sobre_mi.html')
 
 def manual(request):
-    return render(request, 'manual.html')
+    return render(request, 'usuarios/manual.html')
 
 def olvido_contrasena(request):
     return render(request, "usuarios/olvido_contrasena.html")

@@ -84,3 +84,35 @@ class Reporte(models.Model):
         # Siempre validar antes de guardar
         self.full_clean()
         super().save(*args, **kwargs)
+
+
+class Calificacion(models.Model):
+    reporte = models.ForeignKey(Reporte, on_delete=models.CASCADE, related_name='calificaciones')
+    valor = models.PositiveSmallIntegerField()  # 1..5
+    creador = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='calificaciones'
+    )
+    fecha = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = 'calificaciones'
+
+    def __str__(self):
+        return f"{self.reporte_id} - {self.valor}"
+
+    def clean(self):
+        if not (1 <= self.valor <= 5):
+            raise ValidationError('El valor de la calificación debe estar entre 1 y 5')
+
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        super().save(*args, **kwargs)
+
+@property
+def reporte_avg(self):
+    # helper at module level if needed
+    return None

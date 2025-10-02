@@ -19,8 +19,14 @@
         <h1 class="titulo-header">Reporte de infracciones</h1>
 
         <!-- Botón cerrar -->
-        <button class="delete-btn"><i class="bi bi-trash"></i> Eliminar</button>
-        <a href="{% url 'home_usuario' %}" class="cerrar-header" title="Cancelar e ir atrás">✖</a>
+        <button class="delete-btn" type="button" title="Eliminar">
+            <i class="bi bi-trash" aria-hidden="true"></i>
+            <span class="action-label">Eliminar</span>
+        </button>
+        <a href="{% url 'home_usuario' %}" class="cerrar-header" title="Cancelar e ir atrás">
+            <i class="bi bi-x-lg" aria-hidden="true"></i>
+            <span class="cerrar-label">Cerrar</span>
+        </a>
     </div>
 
     <!-- 🔹 Menú lateral -->
@@ -38,22 +44,23 @@
         <div class="report-card">
             <div class="report-header">
                 <span class="report-date">22 Febrero 2025</span>
-                <span class="status status-pendiente">En proceso</span>
+                <span class="status status-en-proceso">En proceso</span>
             </div>
             <div class="report-body">
                 <div class="report-info">
-                    <div class="report-icon"><i class="bi bi-droplet-fill"></i></div>
-                    <h3 class="report-title">Acueducto</h3>
+                    <div class="service-header">
+                        <i class="bi bi-droplet-fill"></i>
+                        <h3 class="report-title">Acueducto</h3>
+                    </div>
                     <textarea class="description" placeholder="Descripción"></textarea>
                     <div class="rating">
-                        <i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
-                        <i class="bi bi-star"></i><i class="bi bi-star"></i>
+                        <div class="stars" data-initial="0"></div>
                     </div>
                     <input type="text" placeholder="Escribe un comentario sobre el servicio">
-                    <button class="send-btn">Enviar calificación</button>
                 </div>
                 <div class="report-image">
                     <img src="{% static 'evaluaciones/img/acueducto.jpg' %}" alt="Acueducto">
+                    <button class="send-btn">Enviar calificación</button>
                 </div>
             </div>
         </div>
@@ -66,18 +73,19 @@
             </div>
             <div class="report-body">
                 <div class="report-info">
-                    <div class="report-icon"><i class="bi bi-exclamation-triangle-fill"></i></div>
-                    <h3 class="report-title">Infracción</h3>
+                    <div class="service-header">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                        <h3 class="report-title">Infracción</h3>
+                    </div>
                     <textarea class="description" placeholder="Descripción"></textarea>
                     <div class="rating">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        <div class="stars" data-initial="5"></div>
                     </div>
                     <input type="text" placeholder="Escribe un comentario sobre el servicio">
-                    <button class="send-btn">Enviar calificación</button>
                 </div>
                 <div class="report-image">
                     <img src="{% static 'evaluaciones/img/infraccion.jpg' %}" alt="Infracción">
+                    <button class="send-btn">Enviar calificación</button>
                 </div>
             </div>
         </div>
@@ -90,22 +98,24 @@
             </div>
             <div class="report-body">
                 <div class="report-info">
-                    <div class="report-icon"><i class="bi bi-recycle"></i></div>
-                    <h3 class="report-title">Residuos Especiales</h3>
+                    <div class="service-header">
+                        <i class="bi bi-recycle"></i>
+                        <h3 class="report-title">Residuos Especiales</h3>
+                    </div>
                     <textarea class="description" placeholder="Descripción"></textarea>
                     <div class="rating">
-                        <i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
-                        <i class="bi bi-star"></i><i class="bi bi-star"></i>
+                        <div class="stars" data-initial="0"></div>
                     </div>
                     <input type="text" placeholder="Escribe un comentario sobre el servicio">
-                    <button class="send-btn">Enviar calificación</button>
                 </div>
                 <div class="report-image">
                     <img src="{% static 'evaluaciones/img/residuos.jpg' %}" alt="Residuos Especiales">
+                    <button class="send-btn">Enviar calificación</button>
                 </div>
             </div>
         </div>
     </main>
 </body>
 <script src="{% static 'reportes/js/menu.js' %}"></script>
+<script src="{% static 'evaluaciones/js/stars.js' %}"></script>
 {% endblock %}

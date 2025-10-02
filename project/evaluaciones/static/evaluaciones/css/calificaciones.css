@@ -131,3 +131,69 @@ body {
 .numeros{
     font-size: 30px;
 }
+
+/* Star rating styles */
+.stars {
+    display: inline-block;
+    user-select: none;
+}
+.stars .star {
+    font-size: 32px; /* default size, increase for admin */
+    color: #d1d5db; /* light gray */
+    cursor: pointer;
+    padding: 0 4px;
+    transition: transform 0.08s ease, color 0.12s ease;
+}
+.stars .star.filled {
+    color: gold;
+    transform: scale(1.05);
+}
+.stars .star.hover {
+    color: #ffdd55;
+    transform: scale(1.35);
+}
+
+/* Disable animation but keep size when the no-anim helper class is used */
+.stars.no-anim .star {
+    transition: none !important;
+}
+.stars.no-anim .star.filled,
+.stars.no-anim .star.hover {
+    transform: none !important;
+}
+
+/* Strong override: remove any transform/transition/animation for all descendants */
+.stars.no-anim,
+.stars.no-anim * {
+    transition: none !important;
+    -webkit-transition: none !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    animation: none !important;
+}
+
+/* Make stars in admin visually inert */
+.stars.no-anim {
+    pointer-events: none;
+    cursor: default;
+}
+
+/* Slightly larger stars for admin view */
+@media (min-width: 720px) {
+    .report-info .stars .star { font-size: 38px; }
+}
+
+/* Accessibility focus */
+.stars .star:focus {
+    outline: 2px solid rgba(16,33,82,0.2);
+    outline-offset: 3px;
+}
+
+    .report-info .avg {
+        margin-top: 6px;
+        font-weight: 700;
+        color: #102152;
+    }
+    .report-info .avg.user-selected {
+        color: #1e8449;
+    }
