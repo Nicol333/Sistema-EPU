@@ -13,22 +13,25 @@
 <main class="contenido-principal">
 
     <div class="barra-header">
-        <button class="menu-btn"><i class="bi bi-list"></i></button>
+        <button class="boton-menu"><i class="bi bi-list"></i></button>
 
         <!-- Título centrado -->
         <h1 class="titulo-header">Reporte de infracciones</h1>
 
         <!-- Botón cerrar -->
-        <a href="{% url 'home_usuario' %}" class="cerrar-header" title="Cancelar e ir atrás">✖</a>
+        <a href="{% url 'home_usuario' %}" class="cerrar-header" title="Cancelar e ir atrás">
+            <i class="bi bi-x-lg" aria-hidden="true"></i>
+            <span class="cerrar-label">Cerrar</span>
+        </a>
     </div>
 
     <!-- 🔹 Menú lateral -->
-    <nav class="side-menu" id="side-menu">
+    <nav class="menu-lateral" id="side-menu">
         <ul>
-            <li class="nav-item"><a href="{% url 'registrar_infraccion' %}" class="nav-link"><i class="bi bi-exclamation"></i> Infracción</a></li>
-            <li class="nav-item"><a href="{% url 'registrar_infraestructura' %}" class="nav-link"><i class="bi bi-building"></i> Infraestructura</a></li>
-            <li class="nav-item"><a href="{% url 'registrar_reciclaje_especial' %}" class="nav-link"><i class="bi bi-recycle"></i> Reciclaje especial</a></li>
-            <li class="nav-item"><a href="{% url 'historial_usuario' %}" class="nav-link"><i class="bi bi-folder"></i> Historial</a></li>
+            <li class="item-nav"><a href="{% url 'registrar_infraccion' %}" class="enlace-nav"><i class="bi bi-exclamation"></i> Infracción</a></li>
+            <li class="item-nav"><a href="{% url 'registrar_infraestructura' %}" class="enlace-nav"><i class="bi bi-building"></i> Infraestructura</a></li>
+            <li class="item-nav"><a href="{% url 'registrar_reciclaje_especial' %}" class="enlace-nav"><i class="bi bi-recycle"></i> Reciclaje especial</a></li>
+            <li class="item-nav"><a href="{% url 'historial_usuario' %}" class="enlace-nav"><i class="bi bi-folder"></i> Historial</a></li>
             <li><a href="{% url 'home' %}"><i class="bi bi-box-arrow-right"></i> Cerrar sesión</a></li>
         </ul>
     </nav>
@@ -37,12 +40,13 @@
     <div class="formulario-contenedor">
         <form id="formulario-reporte" class="formulario" novalidate method="post">
             {% csrf_token %}
+            <input type="hidden" name="anonimo" id="anonimoInput" value="0">
 
             <!-- Opciones -->
             <div class="seccion-formulario">
-                <div class="seccion-contenido toggle-opciones">
+                    <div class="seccion-contenido toggle-opciones">
                     <span class="toggle-label">Reporte anónimo:</span>
-                    <i class="bi bi-toggle-off toggle-icon" id="toggleAnonimo"></i>
+                    <i class="bi bi-toggle-off icono-toggle" id="toggleAnonimo"></i>
                 </div>
             </div>
 
@@ -57,8 +61,6 @@
                 <div class="seccion-contenido">
                     <div class="campos-grid">
                         <div class="grupo-input">
-                            <label for="titulo" class="label-profesional">Título del Reporte <span
-                                    class="campo-requerido"></span></label>
                             <div class="input-con-icono">
                                 <span class="input-icono"><i class="bi bi-clipboard"></i></span>
                                 <input type="text" id="titulo" name="titulo" class="input-formulario"
@@ -67,8 +69,6 @@
                         </div>
 
                         <div class="grupo-input">
-                            <label for="descripcion" class="label-formulario">Descripción Detallada <span
-                                    class="campo-requerido"></span></label>
                             <div class="input-con-icono">
                                 <span class="input-icono"><i class="bi bi-card-text"></i></span>
                                 <textarea id="descripcion" name="descripcion"
@@ -93,8 +93,6 @@
                 <div class="seccion-contenido">
                     <div class="campos-grid">
                         <div class="grupo-input">
-                            <label for="ubicacion" class="label-profesional">Dirección <span
-                                    class="campo-requerido"></span></label>
                             <div class="input-con-icono">
                                 <span class="input-icono"><i class="bi bi-geo-alt"></i></span>
                                 <input type="text" id="ubicacion" name="ubicacion" class="input-formulario"
@@ -110,18 +108,17 @@
                 <div class="seccion-header">
                     <div class="seccion-info">
                         <h3 class="seccion-titulo">Evidencia Fotográfica</h3>
-                        <p class="seccion-descripcion">Adjunte imágenes que respalden el reporte</p>
                     </div>
                     <div class="seccion-icono"><i class="bi bi-camera-fill"></i></div>
                 </div>
                 <div class="seccion-contenido">
-                    <div class="upload-area" id="upload-area">
-                        <div class="upload-contenido">
+                    <div class="area-subida" id="upload-area">
+                        <div class="contenido-subida">
                             <div class="upload-icono"><i class="bi bi-image-fill"></i></div>
                             <h4>Adjuntar Fotografías</h4>
                             <p>Arrastra las imágenes aquí o haz clic para seleccionar</p>
                             <input type="file" id="imagenes" name="imagenes[]" multiple accept="image/*"
-                                class="upload-input d-none">
+                                class="input-subida d-none">
                             <button type="button" class="boton boton-secundario">Seleccionar Archivos</button>
                         </div>
                     </div>
@@ -136,15 +133,16 @@
     </div>
 
     <!-- Toggle adicional -->
-    <div class="toggle-wrapper mt-4">
-        <input type="checkbox" id="toggleAnonimoSwitch" class="toggle-checkbox">
+    <div class="envoltorio-toggle mt-4">
+        <input type="checkbox" id="toggleAnonimoSwitch" class="casilla-toggle">
         <label for="toggleAnonimoSwitch" class="toggle-label">
-            <span class="toggle-inner"></span>
-            <span class="toggle-switch"></span>
+            <span class="toggle-interior"></span>
+            <span class="toggle-palanca"></span>
         </label>
     </div>
 
 </main>
 
 <script src="{% static 'reportes/js/menu.js' %}"></script>
+<script src="{% static 'reportes/js/toggleAnonimo.js' %}"></script>
 {% endblock %}

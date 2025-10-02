@@ -1,4 +1,3 @@
-
 .barra-header .menu-btn {
     position: absolute;
     left: 20px;
@@ -58,14 +57,16 @@
     right: 20px;
     top: 15px;
     color: #fff;
-    font-size: 3rem;
+    font-size: 1.6rem;
     text-decoration: none;
     cursor: pointer;
-    transition: transform 0.2s ease, color 0.2s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
+    border-radius: 8px; /* mismo radio que botones */
 }
 
 .cerrar-header:hover {
-    transform: scale(1.2);
+    transform: none !important; /* quitar scale */
+    background-color: rgba(255, 255, 255, 0.2) !important; /* mismo hover que .actions button */
 }
 
 /* Contenedor de botones alineado horizontalmente */
@@ -90,12 +91,13 @@
 }
 
 .actions button i {
-    font-size: 30px;
+    font-size: 1.6rem;
 }
 
 .actions button span {
     font-size: 12px;
     margin-top: 4px; /* separación entre icono y texto */
+    font-weight: 600; /* texto de las acciones un poco más grueso */
 }
 
 
@@ -159,7 +161,7 @@ header h1 i {
 
 .title {
     font-size: 28px;
-    font-weight: bold;
+    font-weight: 700;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -288,3 +290,312 @@ td:last-child {
 .actions button:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
+
+/* ===== Header: ajustar tamaño/color de iconos y peso de texto (cambios conservadores) ===== */
+
+.cerrar-header {
+    /* reducir para mantener coherencia con otros iconos del header */
+    font-size: 1.6rem;
+}
+
+.actions button i {
+    /* iconos de acción: un tamaño consistente y relativo */
+    font-size: 1.6rem;
+}
+
+/* Unificar apariencia de iconos y mejorar alineación en el header (cambios conservadores) */
+.header-container .bi,
+.header-container .menu-btn i,
+.header-container .actions i,
+.header-container .title i,
+.header-container .cerrar-header {
+    font-size: 1.6rem; /* tamaño homogéneo */
+    color: #ffffff;    /* mismo color */
+    vertical-align: middle;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    /* ligeramente más gruesa pero conservadora */
+    font-weight: 700;
+}
+
+/* ===== fin de ajustes ===== */
+
+/* ===== Overrides finales: asegurar iconos alineados y de igual tamaño, título más grueso ===== */
+
+/* Forzar tamaño y alineación homogénea para iconos en header y menú lateral */
+.header-container i,
+.header-container .bi,
+.menu-btn i,
+.actions i,
+.title i,
+.side-menu ul li a i,
+.side-menu i,
+.cerrar-header,
+.header-container .cerrar-header {
+    font-size: 1.25rem !important; /* tamaño uniforme (~20px) */
+    color: #ffffff !important;    /* mismo color */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+    vertical-align: middle !important;
+    margin-right: 8px; /* separación consistente entre icono y texto */
+}
+
+/* Asegurar que los enlaces del side-menu centren icono y texto */
+.side-menu ul li a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Título del header más grueso y ligeramente mayor tamaño */
+.title {
+    font-weight: 800 !important; /* más grueso según petición */
+    font-size: 30px !important;
+}
+
+/* Texto de las acciones (span) más grueso para mejor legibilidad */
+.actions button span {
+    font-weight: 700 !important;
+}
+
+/* Botón de cierre: tamaño y comportamiento coherente con otros iconos */
+.cerrar-header {
+    font-size: 1.25rem !important;
+    line-height: 1 !important;
+}
+
+/* Asegurar que el menú hamburguesa (.menu-btn) mantenga el icono centrado */
+.menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    background: none;
+    border: none;
+}
+
+/* ===== Override final: iconos más grandes y alineación garantizada ===== */
+.header-container i,
+.header-container .bi,
+.menu-btn i,
+.actions i,
+.title i,
+.side-menu ul li a i,
+.side-menu i,
+.cerrar-header,
+.header-container .cerrar-header {
+    font-size: 1.8rem !important; /* tamaño final solicitado */
+}
+
+/* Ajuste especifico para la X: caja cuadrada ligeramente mayor */
+.cerrar-header {
+    width: 40px !important;
+    height: 40px !important;
+}
+
+/* Asegurar que el icono dentro de cerrar-header ocupe la caja */
+.cerrar-header i {
+    font-size: 1.8rem !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Mantener la separación entre icono y label en acciones */
+.header-container .actions button i,
+.actions button i {
+    margin-bottom: 6px !important;
+}
+
+/* Asegurar contenedor de acciones alinee elementos al centro */
+.header-container .actions {
+    align-items: center;
+}
+
+/* Los botones de acciones se mantienen en columna pero con gap y centrado */
+.header-container .actions button {
+    flex-direction: column !important;
+    gap: 6px;
+    padding: 6px 8px;
+    text-align: center;
+}
+
+/* Iconos dentro de los botones de acción: sin margen derecho, centrados y con separación inferior */
+.header-container .actions button i,
+.actions button i {
+    margin-right: 0 !important; /* quitar el margen que los desplaza */
+    margin-bottom: 6px !important; /* separación entre icono y texto */
+    display: block !important;
+    width: auto !important;
+}
+
+/* Etiqueta del botón: bloque centrado para evitar desalineación */
+.header-container .actions button span,
+.actions button span {
+    display: block !important;
+    text-align: center !important;
+}
+
+/* Mantener margen-right para iconos en enlaces y menú lateral (no afectar) */
+.side-menu ul li a i,
+.header-container .title i,
+.side-menu i {
+    margin-right: 8px !important;
+}
+
+/* Si el botón de cerrar tuviera desplazamientos, mantenerlo en línea con el header */
+.cerrar-header {
+    line-height: 1 !important;
+}
+
+/* ===== fin ajuste fino ===== */
+
+/* ===== Asegurar que la 'X' de cerrar tenga el mismo tamaño y alineación que los iconos ===== */
+.cerrar-header {
+    /* tamaño y centrado idéntico a los iconos del header */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.8rem !important;
+    width: 40px !important;    /* caja cuadrada para alinear visualmente */
+    height: 40px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    color: #ffffff !important;
+}
+
+/* Si en algún momento la 'X' se reemplaza por un <i> o contenido SVG, mantener mismo tratamiento */
+.cerrar-header i,
+.cerrar-header svg {
+    font-size: 1.8rem !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* ===== Fix: make .cerrar-header flow in the actions flex row and align with icons ===== */
+.header-container .actions {
+    display: flex !important;
+    align-items: center !important; /* center vertically */
+    gap: 12px !important;
+}
+
+/* Ensure cerrar-header is not absolutely positioned and participates in flex layout */
+.cerrar-header {
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    margin-left: 6px !important;
+    align-self: center !important;
+}
+
+/* If cerrar-header had extra padding that shifts it visually, normalize it */
+.cerrar-header {
+    padding: 0 !important;
+    box-sizing: content-box !important;
+}
+
+/* Keep icon inside the anchor centered inside the fixed box */
+.cerrar-header i {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Ensure action buttons' vertical layout doesn't force misalignment */
+.header-container .actions button {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* ===== Alineado final: asegurar que botones y .cerrar-header compartan mismo layout vertical ===== */
+.header-container .actions > * {
+    display: flex !important;
+    flex-direction: column !important; /* icono arriba, label abajo */
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    padding: 6px 8px !important;
+}
+
+/* Dar a la X el mismo espacio inferior que los iconos dentro de botones */
+.cerrar-header i {
+    margin-bottom: 6px !important;
+}
+
+/* Si aún se necesita un ajuste fino vertical, usar translateY (descomentarlo para probar) */
+/*.cerrar-header { transform: translateY(1px); }*/
+
+/* ===== fin alineado final ===== */
+
+/* ===== Añadir etiqueta 'Cerrar' y ajustar alineación final ===== */
+.cerrar-label {
+    display: block;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    margin-top: 2px !important;
+    color: #ffffff !important;
+}
+
+/* Pequeño ajuste vertical para alinear exactamente con otros iconos */
+.cerrar-header i {
+    transform: translateY(2px) !important; /* ajustar hacia abajo 2px */
+}
+
+/* Si la X necesita moverse hacia arriba, cambia translateY(2px) a translateY(-2px) */
+/* ===== fin etiqueta y ajuste ===== */
+
+/* ===== Ajuste: que la X fluya exactamente como los botones (quitar caja fija y transform) ===== */
+.cerrar-header {
+    /* permitir que la X tenga el mismo tamaño que los botones */
+    width: auto !important;
+    height: auto !important;
+    padding: 6px 8px !important;
+    box-sizing: border-box !important;
+    margin-left: 0 !important; /* que no se desplace a la derecha */
+}
+
+/* Quitar cualquier nudging vertical aplicado anteriormente y asegurar separación icono/label */
+.cerrar-header i {
+    transform: none !important;
+    display: block !important;
+    margin-bottom: 6px !important;
+}
+
+/* Asegurar que la etiqueta 'Cerrar' tenga el mismo espaciado que los otros labels */
+.cerrar-label {
+    margin-top: 4px !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+}
+
+/* Mantener .actions children exactamente iguales */
+.header-container .actions > * {
+    /* ya forzado a column; reforzamos padding y box-sizing */
+    padding: 6px 8px !important;
+    box-sizing: border-box !important;
+}
+/* ===== fin ajuste X flujo ===== */
+
+/* ===== DEBUG (temporal): resaltar .cerrar-header para verificar carga de CSS ===== */
+.cerrar-header.debug-verify {
+    outline: 2px solid #00ff00 !important;
+    background: rgba(255,255,255,0.03) !important;
+    border-radius: 6px !important;
+}
+/* ===== fin DEBUG ===== */

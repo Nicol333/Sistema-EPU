@@ -16,7 +16,10 @@
     <div class="barra-header">
         <button class="menu-btn"><i class="bi bi-list"></i></button>
         <h1 class="titulo-header">Reporte de infraestructura</h1>
-        <a href="{% url 'home_usuario' %}" class="cerrar-header" title="Cancelar e ir atrás">✖</a>
+        <a href="{% url 'home_usuario' %}" class="cerrar-header" title="Cancelar e ir atrás">
+            <i class="bi bi-x-lg" aria-hidden="true"></i>
+            <span class="cerrar-label">Cerrar</span>
+        </a>
     </div>
 
     <!-- 🔹 Menú lateral -->
@@ -39,7 +42,7 @@
             <div class="seccion-formulario">
                 <div class="seccion-header">
                     <div class="seccion-info">
-                        <p class="seccion-descripcion">Seleccione el tipo de infraestructura afectada</p>
+                        <h3 class="seccion-titulo">Seleccione el tipo de infraestructura afectada</h3>
                     </div>
                     <div class="seccion-icono"><i class="bi bi-tools"></i></div>
                 </div>
@@ -68,7 +71,6 @@
                 <div class="seccion-contenido">
                     <div class="campos-grid">
                         <div class="grupo-input">
-                            <label for="titulo" class="label-formulario">Título del Reporte <span class="campo-requerido"></span></label>
                             <div class="input-con-icono">
                                 <span class="input-icono"><i class="bi bi-clipboard"></i></span>
                                 <input type="text" id="titulo" name="titulo" class="input-formulario"
@@ -77,7 +79,6 @@
                         </div>
 
                         <div class="grupo-input">
-                            <label for="descripcion" class="label-formulario">Descripción Detallada <span class="campo-requerido"></span></label>
                             <div class="input-con-icono">
                                 <span class="input-icono"><i class="bi bi-card-text"></i></span>
                                 <textarea id="descripcion" name="descripcion" class="input-formulario textarea-formulario"
@@ -101,7 +102,6 @@
                 <div class="seccion-contenido">
                     <div class="campos-grid">
                         <div class="grupo-input">
-                            <label for="ubicacion" class="label-formulario">Dirección <span class="campo-requerido"></span></label>
                             <div class="input-con-icono">
                                 <span class="input-icono"><i class="bi bi-geo-alt"></i></span>
                                 <input type="text" id="ubicacion" name="ubicacion" class="input-formulario"
@@ -117,7 +117,6 @@
                 <div class="seccion-header">
                     <div class="seccion-info">
                         <h3 class="seccion-titulo">Evidencia Fotográfica</h3>
-                        <p class="seccion-descripcion">Adjunte imágenes que respalden el reporte</p>
                     </div>
                     <div class="seccion-icono"><i class="bi bi-camera-fill"></i></div>
                 </div>
@@ -144,4 +143,5 @@
 </main>
 
 <script src="{% static 'reportes/js/menu.js' %}"></script>
+<script src="{% static 'reportes/js/customSelect.js' %}"></script>
 {% endblock %}
